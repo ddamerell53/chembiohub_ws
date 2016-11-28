@@ -114,7 +114,9 @@ class ChemblCharField(models.CharField):
         data = DictWrapper(self.__dict__, connection.ops.quote_name, "qn_")
         default = ''
         if self.default != NOT_PROVIDED and not self.novalidate_default:
-            default = (" DEFAULT '%s' " % str(self.default))
+			#if connection.vendor == 'postgresql':
+			#	default = 'SET '
+			default = (" DEFAULT '%s' " % str(self.default))
 
         if connection.vendor == 'postgresql':
             if self.max_length >= 2712:
@@ -124,7 +126,7 @@ class ChemblCharField(models.CharField):
             type += default
             if self.choices and not self.novalidate:
                 choices = ', '.join(map(lambda x: "'%s'" % x[0].replace("'", "''"), self.choices))
-                type += ' CHECK (%(column)s IN (' + choices + ')) '
+                #type += ' CHECK (%(column)s IN (' + choices + ')) '
             return (type % data)
 
         if connection.vendor == 'mysql':
@@ -161,9 +163,9 @@ class ChemblDateField(models.DateField):
                     type += ' DEFAULT sysdate '
             return type
         if connection.vendor == 'postgresql':
-            if self.default != NOT_PROVIDED:
-                if hasattr(self.default, '__call__') and self.default.__name__ == 'today':
-                    type += ' DEFAULT CURRENT_DATE '
+            #if self.default != NOT_PROVIDED:
+            #    if hasattr(self.default, '__call__') and self.default.__name__ == 'today':
+            #        type += ' SET DEFAULT CURRENT_DATE '
             return type
         if connection.vendor == 'sqlite':
             if self.default != NOT_PROVIDED:
@@ -232,7 +234,9 @@ class ChemblIntegerField(models.IntegerField):
 
         default = ''
         if self.default != NOT_PROVIDED:
-            default = (' DEFAULT %s ' % str(int(self.default)))
+			#if connection.vendor == 'postgresql':
+			#	default += ' SET '
+			default = (' DEFAULT %s ' % str(int(self.default)))
 
         if connection.vendor == 'oracle':
             data = DictWrapper(self.__dict__, connection.ops.quote_name, "qn_")
@@ -251,9 +255,9 @@ class ChemblIntegerField(models.IntegerField):
             if self.length > 9:
                 type =  'bigint'
             type += default
-            if self.choices:
-                choices = ', '.join(map(lambda x: str(x[0]), self.choices))
-                type += ' CHECK (%(column)s IN (' + choices + ')) '
+            #if self.choices:
+            #    choices = ', '.join(map(lambda x: str(x[0]), self.choices))
+            #    type += ' CHECK (%(column)s IN (' + choices + ')) '
             return (type % data)
 
         if connection.vendor == 'mysql':
@@ -280,7 +284,9 @@ class ChemblNullBooleanField(models.IntegerField):
     def db_type(self, connection):
         default = ''
         if self.default != NOT_PROVIDED:
-            default = (' DEFAULT %s ' % str(int(self.default)))
+			#if connection.vendor == 'postgresql':
+			#	default += ' SET '
+			default = (' DEFAULT %s ' % str(int(self.default)))
         if connection.vendor == 'oracle':
             data = DictWrapper(self.__dict__, connection.ops.quote_name, "qn_")
             type = 'NUMBER(1,0)'
@@ -288,11 +294,11 @@ class ChemblNullBooleanField(models.IntegerField):
             type += ' CHECK (%(qn_column)s IN (0,1,-1)) '
             return (type % data)
         if connection.vendor == 'postgresql':
-            data = DictWrapper(self.__dict__, connection.ops.quote_name, "qn_")
+            #data = DictWrapper(self.__dict__, connection.ops.quote_name, "qn_")
             type = 'smallint'
             type += default
-            type += ' CHECK ("%(column)s" in (0,1,-1))'
-            return (type % data)
+            #type += ' CHECK ("%(column)s" in (0,1,-1))'
+            return type #(type % data)
         if connection.vendor == 'mysql':
             type = 'int(1)'
             type += default
@@ -326,12 +332,12 @@ class ChemblNullableBooleanField(models.NullBooleanField):
             type += ' CHECK ((%(qn_column)s IN (0,1)) OR (%(qn_column)s IS NULL)) '
             return (type % data)
         if connection.vendor == 'postgresql':
-            data = DictWrapper(self.__dict__, connection.ops.quote_name, "qn_")
+            #data = DictWrapper(self.__dict__, connection.ops.quote_name, "qn_")
             type = 'smallint'
-            if self.default != NOT_PROVIDED:
-                type += (' DEFAULT %s ' % str(int(self.default)))
-            type += ' CHECK ((%(column)s IN (0,1)) OR (%(column)s IS NULL)) '
-            return (type % data)
+            #if self.default != NOT_PROVIDED:
+            #    type += (' SET DEFAULT %s ' % str(int(self.default)))
+            #type += ' CHECK ((%(column)s IN (0,1)) OR (%(column)s IS NULL)) '
+            return type #(type % data)
         if connection.vendor == 'mysql':
             type = 'bool'
             if self.default != NOT_PROVIDED:
@@ -369,12 +375,12 @@ class ChemblBooleanField(models.BooleanField):
             type += ' CHECK (%(qn_column)s IN (0,1)) '
             return (type % data)
         if connection.vendor == 'postgresql':
-            data = DictWrapper(self.__dict__, connection.ops.quote_name, "qn_")
+            #data = DictWrapper(self.__dict__, connection.ops.quote_name, "qn_")
             type = 'smallint'
-            if self.default != NOT_PROVIDED:
-                type += (' DEFAULT %s ' % str(int(self.default)))
-            type += ' CHECK (%(column)s IN (0,1)) '
-            return (type % data)
+            #if self.default != NOT_PROVIDED:
+            #    type += (' SET DEFAULT %s ' % str(int(self.default)))
+            #type += ' CHECK (%(column)s IN (0,1)) '
+            return type #(type % data)
         if connection.vendor == 'mysql':
             type = 'bool'
             if self.default != NOT_PROVIDED:
@@ -421,17 +427,17 @@ class ChemblPositiveIntegerField(models.IntegerField):
             return (type % data)
 
         if connection.vendor == 'postgresql':
-            data = DictWrapper(self.__dict__, connection.ops.quote_name, "qn_")
+            #data = DictWrapper(self.__dict__, connection.ops.quote_name, "qn_")
             type = 'integer'
             if self.length <= 4:
                 type =  'smallint'
             if self.length > 9:
                 type = 'bigint'
             type += default
-            if self.choices:
-                choices = ' AND %(column)s IN ('+ ', '.join(map(lambda x: str(x[0]), self.choices)) + ' ) '
-            type += ' CHECK (%(column)s >= 0' + choices + ') '
-            return (type % data)
+            #if self.choices:
+            #    choices = ' AND %(column)s IN ('+ ', '.join(map(lambda x: str(x[0]), self.choices)) + ' ) '
+            #type += ' CHECK (%(column)s >= 0' + choices + ') '
+            return type #(type % data)
 
         if connection.vendor == 'mysql':
             type =  'int(%s) UNSIGNED' % (self.length)
