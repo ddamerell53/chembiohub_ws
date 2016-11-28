@@ -114,9 +114,8 @@ class ChemblCharField(models.CharField):
         data = DictWrapper(self.__dict__, connection.ops.quote_name, "qn_")
         default = ''
         if self.default != NOT_PROVIDED and not self.novalidate_default:
-			#if connection.vendor == 'postgresql':
-			#	default = 'SET '
-			default = (" DEFAULT '%s' " % str(self.default))
+	    if connection.vendor != 'postgresql':
+	        default += (" DEFAULT '%s' " % str(self.default))
 
         if connection.vendor == 'postgresql':
             if self.max_length >= 2712:
@@ -214,7 +213,7 @@ class ChemblPositiveDecimalField(models.DecimalField):
 
         if connection.vendor == 'postgresql':
             data = DictWrapper(self.__dict__, connection.ops.quote_name, "qn_")
-            type =  'numeric(%(max_digits)s, %(decimal_places)s) CHECK ("%(column)s" >= 0)'
+            type =  'numeric(%(max_digits)s, %(decimal_places)s)'# CHECK ("%(column)s" >= 0)'
             return (type % data)
 
         return super(ChemblPositiveDecimalField, self).db_type(connection)
@@ -234,9 +233,8 @@ class ChemblIntegerField(models.IntegerField):
 
         default = ''
         if self.default != NOT_PROVIDED:
-			#if connection.vendor == 'postgresql':
-			#	default += ' SET '
-			default = (' DEFAULT %s ' % str(int(self.default)))
+            if connection.vendor != 'postgresql':
+	        default += (' DEFAULT %s ' % str(int(self.default)))
 
         if connection.vendor == 'oracle':
             data = DictWrapper(self.__dict__, connection.ops.quote_name, "qn_")
@@ -415,7 +413,8 @@ class ChemblPositiveIntegerField(models.IntegerField):
         choices = ''
 
         if self.default != NOT_PROVIDED:
-            default = (' DEFAULT %s ' % str(int(self.default)))
+            if connection.vendor != 'postgresql':
+                default += (' DEFAULT %s ' % str(int(self.default)))
 
         if connection.vendor == 'oracle':
             data = DictWrapper(self.__dict__, connection.ops.quote_name, "qn_")
