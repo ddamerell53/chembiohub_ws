@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table':'compound_structural_alerts'
+                'db_table':'chembl_core_model_compoundstructuralalerts'
             },
         ),
         migrations.CreateModel(
@@ -41,7 +41,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'abstract': False,
-                'managed': True,'db_table': 'frac_classification'
+'db_table':'chembl_core_model_fracclassification'
             },
         ),
         migrations.CreateModel(
@@ -58,7 +58,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'abstract': False,
-                'managed': True,'db_table': 'hrac_classification'
+'db_table':'chembl_core_model_hracclassification'
             },
         ),
         migrations.CreateModel(
@@ -77,7 +77,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'abstract': False,
-                'managed': True,'db_table':'irac_classification'
+'db_table':'chembl_core_model_iracclassification'
             },
         ),
         migrations.CreateModel(
@@ -89,7 +89,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'abstract': False,
-                'managed': True,'db_table': 'molecule_frac_classification'
+'db_table':'chembl_core_model_moleculefracclassification'
             },
         ),
         migrations.CreateModel(
@@ -101,7 +101,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'abstract': False,
-                'managed': True,'db_table': 'molecule_hrac_classification'
+'db_table':'chembl_core_model_moleculehracclassification'
             },
         ),
         migrations.CreateModel(
@@ -114,7 +114,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'molecule_irac_classification'
+                'db_table':'chembl_core_model_moleculeiracclassification'
             },
         ),
         migrations.CreateModel(
@@ -125,7 +125,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'abstract': False,
-                'managed': True,'db_table': 'patent_use_codes'
+'db_table':'chembl_core_model_patentusecodes'
             },
         ),
         migrations.CreateModel(
@@ -142,7 +142,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'abstract': False,
-                'managed': True,'db_table':'product_patents'
+'db_table':'chembl_core_model_productpatents'
             },
         ),
         migrations.CreateModel(
@@ -154,7 +154,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'abstract': False,
-                'managed': True,'db_table': 'structural_alerts'
+'db_table':'chembl_core_model_structuralalerts'
             },
         ),
         migrations.CreateModel(
@@ -166,7 +166,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'abstract': False,
-                'managed': True,'db_table': 'structural_alert_sets'
+'db_table':'chembl_core_model_structuralalertsets'
             },
         ),
         migrations.RemoveField(

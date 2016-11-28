@@ -25,7 +25,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table' : 'action_type',                
+                'db_table':'chembl_core_model_actiontype',                
             },
             bases=( models.Model,),
         ),
@@ -57,7 +57,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table' : 'activities',   
+                'db_table':'chembl_core_model_activities',   
             },
             bases=(models.Model,),
         ),
@@ -74,7 +74,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table' : 'activity_stds_lookup'
+                'db_table':'chembl_core_model_activitystdslookup'
             },
             bases=(models.Model,),
         ),
@@ -87,7 +87,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'assay_parameters'
+                'db_table':'chembl_core_model_assayparameters'
             },
             bases=(models.Model,),
         ),
@@ -126,7 +126,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'assays'
+                'db_table':'chembl_core_model_assays'
             },
             bases=(models.Model,),
         ),
@@ -139,7 +139,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'assay_type'
+                'db_table':'chembl_core_model_assaytype'
             },
             bases=(models.Model,),
         ),
@@ -161,7 +161,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table' : 'atc_classification'
+                'db_table':'chembl_core_model_atcclassification'
             },
             bases=(models.Model,),
         ),
@@ -174,7 +174,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'binding_sites'
+                'db_table':'chembl_core_model_bindingsites'
             },
             bases=(models.Model,),
         ),
@@ -198,7 +198,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'bio_component_sequences'
+                'db_table':'chembl_core_model_biocomponentsequences'
             },
             bases=(models.Model,),
         ),
@@ -209,7 +209,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'abstract': False,
-                'managed': True,'db_table': 'biotherapeutic_components'
+'db_table':'chembl_core_model_biotherapeuticcomponents'
             },
             bases=(models.Model,),
         ),
@@ -230,7 +230,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'cell_dictionary'
+                'db_table':'chembl_core_model_celldictionary'
             },
             bases=(models.Model,),
         ),
@@ -245,7 +245,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'chembl_id_lookup'
+                'db_table':'chembl_core_model_chemblidlookup'
             },
             bases=(models.Model,),
         ),
@@ -257,7 +257,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'component_class'
+                'db_table':'chembl_core_model_componentclass'
             },
             bases=(models.Model,),
         ),
@@ -271,7 +271,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'component_domains'
+                'db_table':'chembl_core_model_componentdomains'
             },
             bases=(models.Model,),
         ),
@@ -295,7 +295,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'component_sequences'
+                'db_table':'chembl_core_model_componentsequences'
             },
             bases=(models.Model,),
         ),
@@ -310,7 +310,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'component_synonyms'
+                'db_table':'chembl_core_model_componentsynonyms'
             },
             bases=(models.Model,),
         ),
@@ -332,7 +332,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'compound_records'
+                'db_table':'chembl_core_model_compoundrecords'
             },
             bases=(models.Model,),
         ),
@@ -346,7 +346,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'confidence_score_lookup'
+                'db_table':'chembl_core_model_confidencescorelookup'
             },
             bases=(models.Model,),
         ),
@@ -359,7 +359,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'curation_lookup'
+                'db_table':'chembl_core_model_curationlookup'
             },
             bases=(models.Model,),
         ),
@@ -372,7 +372,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'data_validity_lookup'
+                'db_table':'chembl_core_model_datavaliditylookup'
             },
             bases=(models.Model,),
         ),
@@ -389,7 +389,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'defined_daily_dose'
+                'db_table':'chembl_core_model_defineddailydose'
             },
             bases=(models.Model,),
         ),
@@ -416,7 +416,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'docs'
+                'db_table':'chembl_core_model_docs'
             },
             bases=(models.Model,),
         ),
@@ -433,7 +433,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'domains'
+                'db_table':'chembl_core_model_domains'
             },
             bases=(models.Model,),
         ),
@@ -461,7 +461,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'drug_mechanism'
+                'db_table':'chembl_core_model_drugmechanism'
             },
             bases=(models.Model,),
         ),
@@ -475,7 +475,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-		'db_table': 'formulations'
+		'db_table':'chembl_core_model_formulations'
             },
             bases=(models.Model,),
         ),
@@ -506,7 +506,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'journal_articles'
+                'db_table':'chembl_core_model_journalarticles'
             },
             bases=(models.Model,),
         ),
@@ -526,7 +526,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'journals'
+                'db_table':'chembl_core_model_journals'
             },
             bases=(models.Model,),
         ),
@@ -542,7 +542,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'ligand_eff'
+                'db_table':'chembl_core_model_ligandeff'
             },
             bases=(models.Model,),
         ),
@@ -558,7 +558,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'mechanism_refs'
+                'db_table':'chembl_core_model_mechanismrefs'
             },
             bases=(models.Model,),
         ),
@@ -571,7 +571,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'molecule_atc_classification'
+                'db_table':'chembl_core_model_moleculeatcclassification'
             },
             bases=(models.Model,),
         ),
@@ -618,7 +618,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'molecule_dictionary'
+                'db_table':'chembl_core_model_moleculedictionary'
             },
             bases=(models.Model,),
         ),
@@ -635,7 +635,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'compound_structures'
+                'db_table':'chembl_core_model_compoundstructures'
             },
             bases=(models.Model,),
         ),
@@ -669,7 +669,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'compound_properties'
+                'db_table':'chembl_core_model_compoundproperties'
             },
             bases=(models.Model,),
         ),
@@ -696,7 +696,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'compound_images'
+                'db_table':'chembl_core_model_compoundimages'
             },
             bases=(models.Model,),
         ),
@@ -710,7 +710,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'biotherapeutics'
+                'db_table':'chembl_core_model_biotherapeutics'
             },
             bases=(models.Model,),
         ),
@@ -724,7 +724,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'molecule_hierarchy'
+                'db_table':'chembl_core_model_moleculehierarchy'
             },
             bases=(models.Model,),
         ),
@@ -739,7 +739,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'molecule_synonyms'
+                'db_table':'chembl_core_model_moleculesynonyms'
             },
             bases=(models.Model,),
         ),
@@ -755,7 +755,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'organism_class'
+                'db_table':'chembl_core_model_organismclass'
             },
             bases=(models.Model,),
         ),
@@ -768,7 +768,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'parameter_type'
+                'db_table':'chembl_core_model_parametertype'
             },
             bases=(models.Model,),
         ),
@@ -784,7 +784,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'predicted_binding_domains'
+                'db_table':'chembl_core_model_predictedbindingdomains'
             },
             bases=(models.Model,),
         ),
@@ -813,7 +813,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'abstract': False,
-                'managed': True, 'db_table': 'products'
+ 'db_table':'chembl_core_model_products'
             },
             bases=(models.Model,),
         ),
@@ -835,7 +835,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'protein_classification'
+                'db_table':'chembl_core_model_proteinclassification'
             },
             bases=(models.Model,),
         ),
@@ -850,7 +850,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'protein_class_synonyms'
+                'db_table':'chembl_core_model_proteinclasssynonyms'
             },
             bases=(models.Model,),
         ),
@@ -871,7 +871,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'protein_family_classification'
+                'db_table':'chembl_core_model_proteinfamilyclassification'
             },
             bases=(models.Model,),
         ),
@@ -905,7 +905,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table': 'record_drug_properties'
+                'db_table':'chembl_core_model_recorddrugproperties'
             },
             bases=(models.Model,),
         ),
@@ -918,7 +918,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-                'db_table' : 'relationship_type'
+                'db_table':'chembl_core_model_relationshiptype'
             },
             bases=(models.Model,),
         ),
@@ -933,7 +933,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-'db_table': 'research_companies'
+'db_table':'chembl_core_model_researchcompanies'
             },
             bases=(models.Model,),
         ),
@@ -946,7 +946,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
                 'managed': True,
-            'db_table': 'research_stem'},
+            'db_table':'chembl_core_model_researchstem'},
             bases=(models.Model,),
         ),
         migrations.CreateModel(
@@ -960,7 +960,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'abstract': False,
-                'managed': True,'db_table': 'site_components'
+'db_table':'chembl_core_model_sitecomponents'
             },
             bases=(models.Model,),
         ),
@@ -973,7 +973,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'abstract': False,
-                'managed': True,'db_table': 'source'
+'db_table':'chembl_core_model_source'
             },
             bases=(models.Model,),
         ),
@@ -988,7 +988,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'abstract': False,
-                'managed': True,'db_table': 'target_components'
+'db_table':'chembl_core_model_targetcomponents'
             },
             bases=(models.Model,),
         ),
@@ -1013,7 +1013,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'abstract': False,
-                'managed': True,'db_table': 'target_dictionary'
+'db_table':'chembl_core_model_targetdictionary'
             },
             bases=(models.Model,),
         ),
@@ -1027,7 +1027,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'abstract': False,
-                'managed': True,'db_table': 'target_relations'
+'db_table':'chembl_core_model_targetrelations'
             },
             bases=(models.Model,),
         ),
@@ -1040,7 +1040,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'abstract': False,
-                'managed': True, 'db_table': 'target_type'
+ 'db_table':'chembl_core_model_targettype'
             },
             bases=(models.Model,),
         ),
@@ -1058,7 +1058,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'abstract': False,
-                'managed': True,'db_table': 'usan_stems'
+'db_table':'chembl_core_model_usanstems'
             },
             bases=(models.Model,),
         ),
@@ -1071,7 +1071,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'abstract': False,
-                'managed': True,'db_table': 'version'
+'db_table':'chembl_core_model_version'
             },
             bases=(models.Model,),
         ),
