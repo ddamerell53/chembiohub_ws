@@ -155,3 +155,5 @@ except ImportError:
 
 for key, field in TABULAR_DATA_SETTINGS["schema"].items():
     field["export_name"] =  "%s:%s:%s" % (ID_PREFIX, ENV_NAME, field["knownBy"])
+
+SILENCED_SYSTEM_CHECKS=['fields.W342']

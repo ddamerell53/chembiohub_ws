@@ -75,7 +75,7 @@ class ProteinClassification(six.with_metaclass(ChemblModelMetaClass, ChemblCoreA
     replaced_by = ChemblPositiveIntegerField(length=9, blank=True, null=True)
     class_level = ChemblPositiveIntegerField(length=9, choices=CLASS_LEVEL_CHOICES, help_text=u'Level of the class within the hierarchy (level 1 = top level classification)')
     sort_order = ChemblPositiveIntegerField(length=2, blank=True, null=True)
-    component_sequences = models.ManyToManyField('ComponentSequences', through="ComponentClass", null=True, blank=True)
+    component_sequences = models.ManyToManyField('ComponentSequences', through="ComponentClass", blank=True)
 
     class Meta(ChemblCoreAbstractModel.Meta):
         pass

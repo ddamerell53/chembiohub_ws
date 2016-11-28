@@ -20,7 +20,7 @@ class Domains(six.with_metaclass(ChemblModelMetaClass, ChemblCoreAbstractModel))
     source_domain_id = ChemblCharField(max_length=20, help_text=u'Identifier for the domain in the source database (e.g., Pfam ID such as PF00001).')
     domain_name = ChemblCharField(max_length=20, blank=True, null=True, help_text=u'Name given to the domain in the source database (e.g., 7tm_1).')
     domain_description = ChemblCharField(max_length=500, blank=True, null=True, help_text=u'Longer name or description for the domain.')
-    component_sequences = models.ManyToManyField('ComponentSequences', through="ComponentDomains", null=True, blank=True)
+    component_sequences = models.ManyToManyField('ComponentSequences', through="ComponentDomains", blank=True)
 
     class Meta(ChemblCoreAbstractModel.Meta):
         pass
@@ -45,7 +45,7 @@ class BindingSites(six.with_metaclass(ChemblModelMetaClass, ChemblCoreAbstractMo
     site_id = ChemblAutoField(primary_key=True, length=9, help_text=u'Primary key. Unique identifier for a binding site in a given target.')
     site_name = ChemblCharField(max_length=200, blank=True, null=True, help_text=u'Name/label for the binding site.')
     target = models.ForeignKey(TargetDictionary, blank=True, null=True, db_column='tid', help_text=u'Foreign key to target_dictionary. Target on which the binding site is found.')
-    domains = models.ManyToManyField('Domains', through="SiteComponents", null=True, blank=True)
+    domains = models.ManyToManyField('Domains', through="SiteComponents",  blank=True)
 
     class Meta(ChemblCoreAbstractModel.Meta):
         pass

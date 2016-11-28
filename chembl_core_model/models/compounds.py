@@ -184,6 +184,7 @@ class MoleculeDictionary(six.with_metaclass(ChemblModelMetaClass, ChemblCoreAbst
 
     molregno = models.AutoField(primary_key=True,  help_text=u'Internal Primary Key for the molecule')
     pref_name = ChemblCharField(max_length=255, db_index=True, blank=True, null=True, help_text=u'Preferred name for the molecule')
+    # pylint: disable=fields.W342
     chembl = models.ForeignKey(ChemblIdLookup, unique=True, blank=True, null=True, help_text=u'ChEMBL identifier for this compound (for use on web interface etc)') # This combination of null and blank is actually very important!
     max_phase = ChemblPositiveIntegerField(length=1, db_index=True, default=0, choices=MAX_PHASE_CHOICES, help_text=u'Maximum phase of development reached for the compound (4 = approved). Null where max phase has not yet been assigned.')
     therapeutic_flag = ChemblBooleanField(db_index=True, default=False, help_text=u'Indicates that a drug has a therapeutic application (as opposed to e.g., an imaging agent, additive etc).')
@@ -219,9 +220,9 @@ class MoleculeDictionary(six.with_metaclass(ChemblModelMetaClass, ChemblCoreAbst
     usan_substem = ChemblCharField(max_length=50, blank=True, null=True, help_text=u'Where the compound has been assigned a USAN name, this indicates the substem')
     usan_stem_definition = ChemblCharField(max_length=1000, blank=True, null=True, help_text=u'Definition of the USAN stem')
     indication_class = ChemblCharField(max_length=1000, blank=True, null=True, help_text=u'Indication class(es) assigned to a drug in the USP dictionary')
-    products = models.ManyToManyField('Products', through="Formulations", null=True, blank=True)
-    docs = models.ManyToManyField('Docs', through="CompoundRecords", null=True, blank=True)
-    assays = models.ManyToManyField('Assays', through="Activities", null=True, blank=True)
+    products = models.ManyToManyField('Products', through="Formulations", blank=True)
+    docs = models.ManyToManyField('Docs', through="CompoundRecords", blank=True)
+    assays = models.ManyToManyField('Assays', through="Activities", blank=True)
     
     #Chembiohub extra fields
     created_by = models.ForeignKey("auth.User", null=True, blank=True)
@@ -353,8 +354,8 @@ class CompoundRecords(six.with_metaclass(ChemblModelMetaClass, ChemblCoreAbstrac
     removed = ChemblNullBooleanField(default=0)
     src_compound_id_version = ChemblPositiveIntegerField(length=3, blank=True, null=True, choices=SRC_COMPOUND_ID_VERSION_CHOICES)
     curated = ChemblBooleanField(default=False, help_text=u'Can be marked as curated if the entry has been mapped to a molregno other than that given by the original structure, and hence care should be taken when updating')
-    products = models.ManyToManyField('Products', through="Formulations", null=True, blank=True)
-    assays = models.ManyToManyField('Assays', through="Activities", null=True, blank=True)
+    products = models.ManyToManyField('Products', through="Formulations", blank=True)
+    assays = models.ManyToManyField('Assays', through="Activities", blank=True)
 
     class Meta(ChemblCoreAbstractModel.Meta):
         pass
@@ -452,7 +453,7 @@ class Biotherapeutics(six.with_metaclass(ChemblModelMetaClass, ChemblCoreAbstrac
     molecule = models.OneToOneField(MoleculeDictionary, primary_key=True, db_column='molregno', help_text=u'Foreign key to molecule_dictionary')
     description = ChemblCharField(max_length=2000, blank=True, null=True, help_text=u'Description of the biotherapeutic.')
     helm_notation = ChemblCharField(max_length=4000, blank=True, null=True, help_text=u'Sequence notation generated according to the HELM standard (http://www.openhelm.org/home). Currently for peptides only')
-    bio_component_sequences = models.ManyToManyField('BioComponentSequences', through="BiotherapeuticComponents", null=True, blank=True)
+    bio_component_sequences = models.ManyToManyField('BioComponentSequences', through="BiotherapeuticComponents", blank=True)
 
     class Meta(ChemblCoreAbstractModel.Meta):
         pass
