@@ -17,6 +17,8 @@ from chembl_business_model.utils import cleanup
 from chembl_business_model.utils import getStructure
 from datetime import datetime
 
+from chembl_core_db.db.models.abstractModel import ChemblModelMetaClass
+
 #-----------------------------------------------------------------------------------------------------------------------
 
 class MoleculeDictionary(core.MoleculeDictionary):
@@ -45,6 +47,7 @@ class MoleculeDictionary(core.MoleculeDictionary):
 
     class Meta:
         proxy = True
+	db_table = "chembl_core_model_moleculedictionary"
         app_label = 'chembl_business_model'
 
 #-----------------------------------------------------------------------------------------------------------------------
@@ -250,5 +253,5 @@ class CompoundStructures(core.CompoundStructures):
     class Meta:
         proxy = True
         app_label = 'chembl_business_model'
-
+	db_table = 'chembl_core_model_compoundstructures'
 #-----------------------------------------------------------------------------------------------------------------------

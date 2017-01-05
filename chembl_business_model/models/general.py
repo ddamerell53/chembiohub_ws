@@ -11,6 +11,7 @@ class ChemblIdLookup(core.ChemblIdLookup):
 
     class Meta:
         proxy = True
+        db_table = 'chembl_core_model_chemblidlookup'
         app_label = 'chembl_business_model'
 
 
