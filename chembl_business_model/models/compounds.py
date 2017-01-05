@@ -17,8 +17,6 @@ from chembl_business_model.utils import cleanup
 from chembl_business_model.utils import getStructure
 from datetime import datetime
 
-from chembl_core_db.db.models.abstractModel import ChemblModelMetaClass
-
 #-----------------------------------------------------------------------------------------------------------------------
 
 class MoleculeDictionary(core.MoleculeDictionary):
