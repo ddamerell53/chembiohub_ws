@@ -47,6 +47,8 @@ class ChemblModelMetaClass(ModelBase):
             meta = attrs["Meta"]
             if hasattr(meta, "db_table"):
                 n = meta.db_table
+	    elif hasattr(meta, "app_label"):
+		n = meta.app_label + '_' + n 	
         klas = super(ChemblModelMetaClass, cls).__new__(cls, name, bases, attrs)
         if settings.EXPORT_MODE:
             klas._meta.db_table = unicode(convert(n))
